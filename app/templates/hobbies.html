@@ -34,9 +34,11 @@
         <h1>{{ title }}</h1>
         <ul>
         {% for hobby in hobbies %}
-            <img src={{hobby.image}}/>
-            <li>{{hobby.name}}</li>
-            <p>{{hobby.desc}}</p>
+            <li>
+                <p>{{hobby.name}}</p>
+                <img src={{hobby.image}}/>
+                <p>{{hobby.desc}}</p>
+            </li>
         {% endfor %}
         </ul>
     </section>

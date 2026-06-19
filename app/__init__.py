@@ -18,4 +18,4 @@ def about():
 
 @app.route('/work')
 def work():
-    return render_template('work.html')
+    return render_template('work.html', title="Work Experience", url=os.getenv("URL"))

@@ -76,3 +76,29 @@ edu = [
      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
      "links": None}
 ]
+
+
+travel = {
+    "visited": [
+        {
+            "name": "Paris",
+            "year": "2023",
+            "lat": 48.8566,
+            "lon": 2.3522
+        },
+        {
+            "name": "Tokyo",
+            "year": "2024",
+            "lat": 35.6762,
+            "lon": 139.6503
+        }
+    ],
+    "wishlist": [
+        {
+            "name": "Bhutan",
+            "lat": 27.5142,
+            "lon": 90.4336
+        }
+    ]
+}
+

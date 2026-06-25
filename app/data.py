@@ -83,24 +83,21 @@ travel = {
         {
             "name": "Paris",
             "year": "2023",
-            "top": "32%",
-            "left": "48%",
-            "image": "https://picsum.photos/400/300?random=1"
+            "lat": 48.8566,
+            "lon": 2.3522
         },
         {
             "name": "Tokyo",
             "year": "2024",
-            "top": "30%",
-            "left": "78%",
-            "image": "https://picsum.photos/400/300?random=2"
+            "lat": 35.6762,
+            "lon": 139.6503
         }
     ],
     "wishlist": [
         {
             "name": "Bhutan",
-            "top": "38%",
-            "left": "72%",
-            "image": "https://picsum.photos/400/300?random=3"
+            "lat": 27.5142,
+            "lon": 90.4336
         }
     ]
 }

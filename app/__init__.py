@@ -37,26 +37,21 @@ def travel_page():
     # Create a world map
     travel_map = folium.Map(location=[20, 0], zoom_start=2)
 
-    # Visited: Paris
-    folium.Marker(
-        location=[48.8566, 2.3522],
-        popup="Paris (Visited - 2023)",
-        icon=folium.Icon(color='green', icon='ok-sign')
-    ).add_to(travel_map)
+    # Loop through visited places
+    for place in travel["visited"]:
+        folium.Marker(
+            location=[place["lat"], place["lon"]],
+            popup=f"{place['name']} (Visited - {place['year']})",
+            icon=folium.Icon(color='green', icon='ok-sign')
+        ).add_to(travel_map)
 
-    # Visited: Tokyo
-    folium.Marker(
-        location=[35.6762, 139.6503],
-        popup="Tokyo (Visited - 2024)",
-        icon=folium.Icon(color='green', icon='ok-sign')
-    ).add_to(travel_map)
-
-    # Wishlist: Bhutan
-    folium.Marker(
-        location=[27.5142, 90.4336],
-        popup="Bhutan (Wishlist)",
-        icon=folium.Icon(color='lightgreen', icon='star')
-    ).add_to(travel_map)
+    # Loop through wishlist places
+    for place in travel["wishlist"]:
+        folium.Marker(
+            location=[place["lat"], place["lon"]],
+            popup=f"{place['name']} (Wishlist)",
+            icon=folium.Icon(color='lightgreen', icon='star')
+        ).add_to(travel_map)
 
     # Convert map to HTML
     map_html = travel_map._repr_html_()

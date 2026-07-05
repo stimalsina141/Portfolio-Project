@@ -1,7 +1,7 @@
 user = {
     "name": "Lorem Ipsum",
     "title": "MLH Fellow",
-    "tagline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "tagline": "Deployed from my fork!",
     "headshot": "img/myphoto.jpg",
     "altTxt": "Placeholder image of woman in a dress shirt. She is smiling at the camera.",
     "about": [

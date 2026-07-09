@@ -1,12 +1,13 @@
 user = {
     "name": "Lorem Ipsum",
-    "tagline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "title": "MLH Fellow",
+    "tagline": "Deployed from my fork!",
     "headshot": "img/myphoto.jpg",
     "altTxt": "Placeholder image of woman in a dress shirt. She is smiling at the camera.",
     "about": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        ]
+        ],
 }
 
 hobbies = [

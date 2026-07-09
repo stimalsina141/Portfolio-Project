@@ -92,7 +92,7 @@ def travel_page():
 
 @app.context_processor
 def nav():
-    return{"links": LINKS, "url": os.getenv("URL")}
+    return{"links": LINKS, "contact": CONTACT, "url": os.getenv("URL")}
 
 
 @app.route('/api/timeline_post', methods=['POST'])
@@ -112,4 +112,8 @@ def get_time_line_post():
             for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
-    return{"links": LINKS, "contact": CONTACT, "url": os.getenv("URL")}
+
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline")
+    

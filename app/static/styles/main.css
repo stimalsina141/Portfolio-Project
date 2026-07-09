@@ -297,3 +297,86 @@ a:focus-visible,
 @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
 }
+
+
+/* Timeline Page */
+.timeline-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.timeline-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+#timeline-form .form-group {
+    margin-bottom: 15px;
+}
+
+#timeline-form .form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+#timeline-form .form-group input,
+#timeline-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+#timeline-form button[type="submit"] {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#timeline-form button[type="submit"]:hover {
+    background: #0056b3;
+}
+
+/* Posts List */
+#posts-container h2 {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.timeline-post {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-post h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #007bff;
+}
+
+.timeline-post p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #222;
+    line-height: 1.5;
+}
+
+.timeline-post small {
+    color: #888;
+    font-size: 0.85rem;
+}

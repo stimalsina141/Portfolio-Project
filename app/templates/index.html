@@ -1,17 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-    <header class="hero">
-        <div class="hero-text">
-            <h1>{{ user.title }}</h1>
-            <h2 class="name">{{ user.name }}</h2>
-            <p class="tagline">{{ user.tagline }}</p>
-            <div class="button-group">
-                {% for link in links %}
-                <a href="{{ url_for(link.endpoint) }}" class="btn">{{ link.tagline }}</a>
-                {% endfor %}
+    <header class="hero hero-split" id="home">
+        <div class="hero-text-side">
+            <h1 class="name cursive">{{ user.name }}</h1>
+            <p class="tagline typewriter" data-text="I am an open source chaos">I am an open source chaos</p>
+        </div>
+        <div class="hero-image-side">
+            <img src="{{ url_for('static', filename = user.headshot) }}" alt="{{ user.altTxt }}">
+        </div>
+    </header>
+
+    <section class="home-content">
+        <div class="intro-text">
+            <h2>About Me</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <a href="/about" class="btn">Learn More →</a>
+        </div>
+        <div class="home-highlights">
+            <div class="highlight-card">
+                <h3>📍 Education</h3>
+                <p>CS Student @ Fisk University</p>
+            </div>
+            <div class="highlight-card">
+                <h3>💼 Experience</h3>
+                <p>Building projects with Flask, MySQL, and more</p>
+            </div>
+            <div class="highlight-card">
+                <h3>🎯 Interests</h3>
+                <p>Dancing, Reading, Watching Movies</p>
             </div>
         </div>
-        <img id="profile-picture" class="profile-picture"
-             src="{{ url_for('static', filename=user.headshot) }}" alt="{{ user.altTxt }}">
-    </header>
+    </section>
 {% endblock %}

@@ -5,30 +5,25 @@
    flip <html data-theme="..."> from the switcher.
    ============================================================ */
    :root {
-    /* surfaces */
-    --bg:           #0d0b14;   /* page background, near-black violet */
-    --surface:      #181226;   /* nav, cards                         */
-    --surface-2:    #221a36;   /* raised / hover                     */
-    --border:       #2c2342;
-
-    /* text */
-    --text:         #f2eef9;
-    --muted:        #ada3c4;
-
-    /* accents */
-    --accent:       #ff3ea5;   /* hot pink — primary / interactive   */
-    --accent-hover: #ff66ba;
-    --accent-2:     #b15cff;   /* purple — secondary                 */
-    --on-accent:    #15101f;   /* dark text sitting on a pink fill    */
-    --grad:         linear-gradient(120deg, #ff3ea5, #b15cff);
-
-    /* type + layout */
+    /* Black and Gold Theme */
+    --bg:           #000000;
+    --surface:      #0a0a0a;
+    --surface-2:    #1a1a1a;
+    --border:       #2a2a2a;
+    --text:         #ffffff;
+    --muted:        #b0a88a;
+    --accent:       #d4af37;
+    --accent-hover: #e8c84a;
+    --accent-2:     #b8960f;
+    --on-accent:    #000000;
+    --grad:         linear-gradient(120deg, #d4af37, #b8960f);
     --font:         "Roboto", system-ui, sans-serif;
     --content:      800px;
     --content-wide: 1000px;
     --radius:       8px;
     --radius-pill:  25px;
     --space:        20px;
+
 }
 
 /* ============================================================
@@ -66,95 +61,142 @@ a:focus-visible,
 }
 
 /* ============================================================
-   NAV  (header.nav-bar > nav.nav-content)
-   Logo left; all links grouped tight on the right.
+   NAV  —  Black and Gold Theme
    ============================================================ */
-.nav-bar {
+   .nav-bar {
     background-color: var(--surface);
     border-bottom: 1px solid var(--border);
-    padding: 10px var(--space);
+    padding: 12px var(--space);
 }
 
 .nav-content {
     display: flex;
     align-items: center;
-    gap: var(--space);
+    justify-content: space-between;
+    max-width: var(--content-wide);
+    margin: 0 auto;
 }
 
-.nav-content .nav-logo { height: 60px; width: auto; }
-
-/* only the first link gets the auto margin, so the group moves as one */
-.nav-content a:nth-child(2) { margin-left: auto; }
-
-.nav-content a {
-    color: var(--text);
+.home-icon {
+    color: var(--accent);
     text-decoration: none;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
 }
-.nav-content a:hover,
-.nav-content a:focus { color: var(--accent); }
+
+.home-icon:hover {
+    color: var(--accent-hover);
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
 
 /* ============================================================
-   HERO  —  text left, avatar right
+   HERO  —  Split Layout: Cursive Name + Typewriter Tagline
    ============================================================ */
-.hero {
-    flex: 1;
+   .hero-split {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 48px;
-    text-align: left;
-    padding: 64px var(--space);
-    background:
-        radial-gradient(120% 140% at 80% 20%, rgba(177, 92, 255, 0.18), transparent 60%),
-        var(--surface);
+    min-height: 80vh;
+    padding: 40px var(--space);
+    gap: 60px;
+    background: var(--bg);
 }
 
-/* the column grows to fit the button row; only the prose is capped */
-.hero h1,
-.hero .name,
-.hero .tagline { max-width: 480px; }
-
-/* page title becomes a quiet eyebrow above the name */
-.hero h1 {
-    margin: 0 0 12px;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
+.hero-image-side {
+    flex: 1;
+    max-width: 500px;
 }
 
-.hero .name {
-    margin: 0 0 16px;
-    font-size: 52px;
-    line-height: 1.05;
+.hero-image-side img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--accent);
+}
+
+.hero-text-side {
+    flex: 1;
+    max-width: 500px;
+}
+
+/* Cursive Name */
+.cursive {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
     font-weight: 700;
-    color: var(--accent); /* fallback if background-clip unsupported */
+    font-size: 4rem;
+    color: var(--text);
+    text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+    margin-bottom: 12px;
 }
-@supports (-webkit-background-clip: text) or (background-clip: text) {
-    .hero .name {
-        background: var(--grad);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+
+/* Typewriter Tagline */
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--accent);
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    width: 0;
+    animation: typing 4s steps(30, end) infinite, blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    50% { width: 100%; }
+    80% { width: 100%; }
+    100% { width: 0; }
+}
+
+@keyframes blink {
+    0%, 100% { border-color: var(--accent); }
+    50% { border-color: transparent; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-split {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        min-height: auto;
+        padding: 60px 20px;
     }
-}
 
-.hero .tagline {
-    margin: 0 0 24px;
-    font-size: 18px;
-    color: var(--muted);
-}
+    .hero-image-side {
+        max-width: 300px;
+    }
 
-.hero .profile-picture {
-    height: 220px;
-    width: 220px;
-    flex-shrink: 0;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px var(--accent), 0 0 40px rgba(177, 92, 255, 0.45);
+    .cursive {
+        font-size: 2.8rem;
+    }
+
+    .typewriter {
+        font-size: 1.2rem;
+        white-space: normal;
+        border-right: none;
+        animation: none;
+        width: auto;
+    }
 }
 
 /* ============================================================
@@ -172,19 +214,20 @@ a:focus-visible,
 
 .btn {
     display: inline-block;
-    padding: 8px 18px;
-    font-weight: 500;
-    white-space: nowrap;
+    padding: 10px 24px;
+    font-weight: 600;
     text-decoration: none;
-    color: var(--accent);
+    color: var(--bg);
+    background: var(--accent);
     border: 2px solid var(--accent);
     border-radius: var(--radius-pill);
-    transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    transition: all 0.3s ease;
 }
-.btn:hover, .btn:focus {
-    color: var(--on-accent);
-    background: var(--grad);
-    border-color: transparent;
+
+.btn:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
 }
 
 /* ============================================================
@@ -387,4 +430,171 @@ a:focus-visible,
 .timeline-post small {
     color: var(--muted);
     font-size: 0.85rem;
+}
+
+
+/* Homepage Content */
+.home-content {
+    max-width: var(--content-wide);
+    margin: 40px auto;
+    padding: 0 var(--space);
+}
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.intro-text h2 {
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+.home-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.highlight-card {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-card h3 {
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.highlight-card p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.gold {
+    color: var(--accent);
+}
+
+/* Hero Overlay */
+.hero-overlay {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.hero-text-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-text-overlay .name {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    margin-bottom: 8px;
+}
+
+.hero-text-overlay .tagline {
+    font-size: 1.2rem;
+    color: var(--muted);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+}
+
+.hero-text-overlay .button-group {
+    justify-content: center;
+}
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Cursive Name */
+.cursive {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 4rem;
+    color: var(--text);
+    text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+}
+
+/* Typewriter Tagline */
+.typewriter {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 28ch; /* exactly matches the number of characters */
+    animation: typewriter 3.5s steps(28) infinite;
+}
+
+/* Cursor blinking */
+.typewriter::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--accent);
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes typewriter {
+    0%, 20% { width: 0; }
+    40% { width: 28ch; }
+    80% { width: 28ch; }
+    100% { width: 0; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }

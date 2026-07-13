@@ -1,7 +1,7 @@
 user = {
-    "name": "Lorem Ipsum",
+    "name": "Smriti Timalsina",
     "title": "MLH Fellow",
-    "tagline": "Deployed from my fork!",
+    "tagline": "I am an open source chaos!",
     "headshot": "img/myphoto.jpg",
     "altTxt": "Placeholder image of woman in a dress shirt. She is smiling at the camera.",
     "about": [

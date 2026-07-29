@@ -1,0 +1,32 @@
+services:
+  myportfolio:
+    build: .
+    container_name: myportfolio
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - FLASK_ENV=development
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/myportfolio
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mariadb:10.5
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mydatabase:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+volumes:
+  mydatabase:

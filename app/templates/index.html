@@ -3,7 +3,7 @@
     <header class="hero hero-split" id="home">
         <div class="hero-text-side">
             <h1 class="name cursive">{{ user.name }}</h1>
-            <p class="tagline typewriter" data-text="I am an open source chaos">I am an open source chaos</p>
+            <p class="tagline typewriter" data-text="{{ user.tagline }}">{{ user.tagline }}</p>
         </div>
         <div class="hero-image-side">
             <img src="{{ url_for('static', filename = user.headshot) }}" alt="{{ user.altTxt }}">

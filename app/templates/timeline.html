@@ -58,9 +58,13 @@
         });
 
         if (response.ok) {
-            e.target.reset();
-            loadPosts(); // Reload posts after adding a new one
-        }
+ 	    e.target.reset();
+            loadPosts();
+        } else if (response.status === 429) {
+   	        alert('Too many requests! Please wait a minute before posting again.');
+        } else {
+            alert('Something went wrong. Please try again.');
+}
     });
 
     // Load posts on page load
